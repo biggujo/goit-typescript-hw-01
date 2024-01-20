@@ -154,3 +154,11 @@ const admin: Person = {
   age: 23,
   role: 'admin',
 };
+
+// * never
+
+const infiniteLoop = (): never => {
+  while (true) {
+  }
+  // throw new Error('Something wrong happened');
+};
