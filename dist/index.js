@@ -78,3 +78,9 @@ const admin = {
     age: 23,
     role: 'admin',
 };
+// * never
+const infiniteLoop = () => {
+    while (true) {
+    }
+    // throw new Error('Something wrong happened');
+};
