@@ -63,3 +63,43 @@ type CallbackFunc = (a: string) => void;
 const testCallback: CallbackFunc = (b: string) => {
   return;
 };
+
+// * interface
+
+interface Animal {
+  name: string;
+  eat: () => void;
+}
+
+interface Animal {
+  age: number;
+}
+
+interface BigAnimal extends Animal {
+  size: number;
+}
+
+class Dog implements Animal {
+  name = 'Jack';
+  age = 12;
+
+  eat = () => {
+    console.log('Eating...');
+  };
+}
+
+// * index
+
+// @ts-ignore
+type User = {
+  id: string;
+  name: string;
+  [test: string]: string;
+}
+
+type Users = {
+  [id: string]: User;
+}
+
+const users: Users = {};
+
