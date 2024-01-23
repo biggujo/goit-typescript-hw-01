@@ -66,3 +66,21 @@ const additionalInfo: AdditionalPerson = {
 };
 
 person = merge(person, additionalInfo);
+
+// * Generic classes
+
+class ArrayList<T> {
+  constructor(private initialList: T[] = []) {
+    this.initialList = initialList;
+  }
+
+  push(item: T) {
+    this.initialList.push(item);
+  }
+}
+
+const listNum = new ArrayList<number>();
+listNum.push(1);
+
+const listStr = new ArrayList<string>(['a', 'b']);
+listStr.push('asd');
