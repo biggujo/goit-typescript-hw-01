@@ -89,7 +89,7 @@ const user2: Readonly<User> = {
   age: 17,
 };
 
-user2.age = 12;
+// user2.age = 12;
 
 const readonlyArray1: ReadonlyArray<number> = [1, 2, 3];
 
@@ -116,3 +116,35 @@ const cityDatabase: Database = {
 };
 
 cityDatabase['Lviv'] = 332323;
+
+// * ReturnType<T>
+
+function sum(num1: number, num2: number): number {
+  return 1;
+}
+
+type sumReturnType1 = ReturnType<typeof sum>
+
+// * Parameters<T>
+
+type Callback = (...args: number[]) => number;
+
+const createLoggerFunction = (callback: Callback) => {
+
+  return (...args: Parameters<Callback>) => {
+    console.log('Before function call');
+
+    const result = callback(...args);
+
+    console.log('After function call');
+
+    return result;
+  };
+};
+
+const loggerFunction = createLoggerFunction((): number => {
+  console.log(1);
+  return 2;
+});
+
+loggerFunction();
